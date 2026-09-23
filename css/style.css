@@ -31,6 +31,11 @@ h2 {
     margin: 0;
 }
 
+h3 {
+    font-size: 48px;
+    margin: 0;
+}
+
 a {
     color: var(--color-neutral-100);
     text-decoration: none;
@@ -97,6 +102,19 @@ section.about .empty {
     border-radius: var(--border-radius);
     transition: flex-basis 1s cubic-bezier(0,.22,.15,.99);
     min-width: 32vw;
+    display: flex;
+    padding: 64px;
+    box-sizing: border-box;
+    justify-content: center;
+    align-items: center;
+}
+
+section.about .empty img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center bottom;
+    border-radius: var(--border-radius);
 }
 
 section.about article {
@@ -110,10 +128,13 @@ section.about article {
 section.about article .title {
     flex: 1;
     display: flex;
-    align-items: flex-end;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-end;
     background-color: var(--color-primary);
     border-radius: var(--border-radius);
     padding: var(--gutter);
+    gap: 24px;
 }
 
 section.about article .description {
@@ -243,6 +264,9 @@ section.contact a {
     font-weight: bold;
     transition: filter 1s cubic-bezier(.45,.05,.39,.93);
     will-change: filter;
+    display: inline-block;
+    text-align: center;
+    padding: 12px 64px;
 }
 
 section.contact a:hover {
