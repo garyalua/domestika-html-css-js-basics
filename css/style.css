@@ -106,6 +106,7 @@ section.about .empty {
     border-radius: var(--border-radius);
     transition: flex-basis 1s cubic-bezier(0,.22,.15,.99);
     min-width: 32vw;
+    max-width: 56vw;
     display: flex;
     padding: 64px;
     box-sizing: border-box;
@@ -118,7 +119,7 @@ section.about .empty img {
     height: 100%;
     object-fit: cover;
     object-position: center bottom;
-    border-radius: var(--border-radius);
+    border-radius: 64px;
 }
 
 section.about article {
@@ -166,6 +167,7 @@ section.service figure {
     background-color: var(--color-tertiary);
     border-radius: var(--border-radius);
     max-width: 62.5vw;
+    min-width: 36vw;
     transition: flex-basis 1s cubic-bezier(0,.22,.15,.99);
 }
 
@@ -181,6 +183,7 @@ section.service .text {
     background-color: var(--color-neutral-10);
     padding: var(--gutter);
     border-radius: var(--border-radius);
+    max-width: 64vw;
 }
 
 /* Service Section Animations */
@@ -304,11 +307,6 @@ section.contact a:hover {
         height: 60px;
     }
 
-    section {
-        height: calc(100vh - 60px);
-        top: 60px;
-    }
-
     .menu-toggle {
         display: block;
         background: none;
@@ -323,10 +321,10 @@ section.contact a:hover {
         display: none;
         flex-direction: column;
         width: 100vw;
-        height: calc(100vh - 60px);
+        height: calc(100vh - 80px);
         background-color: var(--color-neutral-10);
         position: fixed;
-        top: 60px;
+        top: 80px;
         left: 0;
         padding: 24px;
         box-sizing: border-box;
@@ -344,12 +342,26 @@ section.contact a:hover {
         margin-left: 0;
     }
 
+    section {
+        height: calc(100vh - 80px);
+        top: 80px;
+    }
+
+    section.sticky {
+    position: sticky;
+    margin-top: 80px;
+    top: 80px;
+}
+
     section.about {
         flex-direction: column;
+        height: auto;
+        min-height: auto;
     }
 
     section.about .empty {
-        padding: 16px;
+        padding: 12px;
+        max-width: 100%;
     }
 
     section.service article {
@@ -358,15 +370,19 @@ section.contact a:hover {
 
     section.service figure {
         flex-basis: 25vh;
+        max-width: 100%;
     }
 
     section.service figure img {
         width: 25%;
     }
 
+    section.service .text {
+        max-width: 100%;
+    }
+
     section.contact a {
-        font-size: 50px;
-        transform: rotate(90deg);
+        font-size: 64px;
     }
 
 }
