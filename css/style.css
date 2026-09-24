@@ -11,7 +11,7 @@ html, body {
     --color-primary: #1c47ff;
     --color-secondary: #d6a3fb;
     --color-tertiary: #d0ff94;
-    --gutter: 3.125vw 6.25vw;
+    --gutter: 80px 64px;
     margin: 0;
     padding: 0;
     background-color: var(--color-neutral-0);
@@ -80,7 +80,7 @@ nav {
     z-index: 1;
 }
 
-.navbar {
+nav.navbar {
     width: 100%;
 }
 
@@ -105,12 +105,12 @@ nav ul li a {
 /* About Section */
 
 section.about .empty {
-    flex-basis: 37.5vw;
+    flex-basis: 37.5%;
     background-color: var(--color-neutral-90);
     border-radius: var(--border-radius);
     transition: flex-basis 1s cubic-bezier(0,.22,.15,.99);
-    min-width: 32vw;
-    max-width: 56vw;
+    min-width: 400px;
+    max-width: 800px;
     display: flex;
     padding: 64px;
     box-sizing: border-box;
@@ -166,12 +166,12 @@ section.service figure {
     display: flex;
     align-items: center;
     justify-content: center;
-    flex-basis: 56.25vw;
+    flex-basis: 56.25%;
     margin: 0;
     background-color: var(--color-tertiary);
     border-radius: var(--border-radius);
-    max-width: 62.5vw;
-    min-width: 36vw;
+    max-width: 62.5%;
+    min-width: 36%;
     transition: flex-basis 1s cubic-bezier(0,.22,.15,.99);
 }
 
@@ -187,7 +187,7 @@ section.service .text {
     background-color: var(--color-neutral-10);
     padding: var(--gutter);
     border-radius: var(--border-radius);
-    max-width: 64vw;
+    max-width: 64%;
 }
 
 /* Service Section Animations */
@@ -291,8 +291,9 @@ section.contact a:hover {
 @media only screen and (max-width: 768px) {
     html, body {
         --border-radius: 50px;
-        --gutter: 6.25vw;
+        --gutter: 24px;
         width: 100%;
+        max-width: 100vw;
     }
 
     h1 {
@@ -318,6 +319,12 @@ section.contact a:hover {
         top: 0;
         left: 0;
         width: 100%;
+    }
+
+    nav.navbar {
+        width: 100%;
+        max-width: 100vw;
+        box-sizing: border-box;
     }
 
     .menu-toggle {
@@ -375,11 +382,15 @@ section.contact a:hover {
     section.about .empty {
         padding: 12px;
         max-width: 100%;
+        min-width: 0%;
+        width: 100%;
     }
 
     section.about .empty img {
         border-radius: 40px;
     }
+
+
 
     section.service article {
         flex-direction: column;
@@ -388,6 +399,8 @@ section.contact a:hover {
     section.service figure {
         flex-basis: 25vh;
         max-width: 100%;
+        min-width: 0%;
+        width: 100%;
     }
 
     section.service figure img {
@@ -396,6 +409,8 @@ section.contact a:hover {
 
     section.service .text {
         max-width: 100%;
+        min-width: 0%;
+        width: 100%;
     }
 
     section.contact a {
