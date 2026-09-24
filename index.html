@@ -12,8 +12,11 @@
 
     <body>
 
-        <nav>
-            <ul>
+        <nav class="navbar">
+            <button class="menu-toggle" aria-label="Abrir menú">
+                ☰
+            </button>
+            <ul class="nav-links">
                 <li><a href="#about">About</a></li>
                 <li><a href="#html">HTML</a></li>
                 <li><a href="#css">CSS</a></li>
@@ -100,6 +103,13 @@
                     element.style.flexBasis = window.innerWidth - event.clientX + 'px';
                 } );
             }
+
+            const menuToggle = document.querySelector('.menu-toggle');
+            const navLinks = document.querySelector('.nav-links');
+
+            menuToggle.addEventListener('click', () => {
+                navLinks.classList.toggle('is-active');
+            });
 
         </script>
 
