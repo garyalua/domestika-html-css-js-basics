@@ -106,10 +106,19 @@
 
             const menuToggle = document.querySelector('.menu-toggle');
             const navLinks = document.querySelector('.nav-links');
+            const allLinks = document.querySelectorAll('.nav-links a');
 
+            // 1. Abre o cierra el menú al hacer clic en el botón de hamburguesa
             menuToggle.addEventListener('click', () => {
-                navLinks.classList.toggle('is-active');
+            navLinks.classList.toggle('is-active');
             });
+
+// 2. Cierra el menú automáticamente cuando el usuario hace clic en cualquier enlace
+allLinks.forEach(link => {
+    link.addEventListener('click', () => {
+        navLinks.classList.remove('is-active');
+    });
+});
 
         </script>
 
