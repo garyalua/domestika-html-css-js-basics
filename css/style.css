@@ -314,6 +314,10 @@ section.contact a:hover {
     nav {
         z-index: 1000;
         height: 60px;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
     }
 
     .menu-toggle {
