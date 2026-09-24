@@ -340,12 +340,12 @@ section.contact a:hover {
     .nav-links {
         display: none;
         flex-direction: column;
-        width: 100%;
         height: calc(100vh - 80px);
         background-color: var(--color-neutral-10);
         position: fixed;
         top: 80px;
         left: 0;
+        right: 0;
         padding: 24px;
         box-sizing: border-box;
         gap: 20px;
