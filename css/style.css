@@ -453,18 +453,22 @@ section.contact a:hover {
     .nav-links {
         display: none;
         flex-direction: column;
-        height: calc(100vh - 80px);
-        background-color: var(--color-neutral-10);
+        width: min(280px, calc(100vw - 24px));
+        height: auto;
+        background-color: rgba(31, 26, 28, 0.96);
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        border-radius: 20px;
         position: fixed;
-        top: 80px;
-        left: 0;
-        right: 0;
-        padding: 24px;
+        top: 72px;
+        right: 12px;
+        left: auto;
+        padding: 20px 18px;
         box-sizing: border-box;
-        gap: 20px;
+        gap: 18px;
         z-index: 1001;
         align-items: flex-start;
         margin: 0;
+        box-shadow: 0 24px 40px rgba(0, 0, 0, 0.28);
     }
 
     .nav-links.is-active {
