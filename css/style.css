@@ -17,7 +17,7 @@ html, body {
     background-color: var(--color-neutral-0);
     color: var(--color-neutral-90);
     font-family: "Syne", sans-serif;    
-    font-size: 24px;
+    font-size: 32px;
 }
 
 h1 {
@@ -110,7 +110,7 @@ section.about .empty {
     border-radius: var(--border-radius);
     transition: flex-basis 1s cubic-bezier(0,.22,.15,.99);
     min-width: 400px;
-    max-width: 800px;
+    max-width: 960px;
     display: flex;
     padding: 64px;
     box-sizing: border-box;
@@ -261,17 +261,18 @@ section.service.service-javascript .text a {
 
 section.contact {
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     background: linear-gradient(var(--color-primary) 0%, var(--color-tertiary) 60%, var(--color-secondary) 70%, var(--color-neutral-100) 100%);
     border-radius: var(--border-radius);
     mix-blend-mode: difference;
     backdrop-filter: blur(16px);
+    color: var(--color-neutral-0);
 }
 
 section.contact a {
-    font-size: 100px;
-    color: var(--color-neutral-0);
+    font-size: 40px;
     font-weight: bold;
     transition: filter 1s cubic-bezier(.45,.05,.39,.93);
     will-change: filter;
@@ -291,9 +292,10 @@ section.contact a:hover {
 @media only screen and (max-width: 768px) {
     html, body {
         --border-radius: 50px;
-        --gutter: 24px;
+        --gutter: 32px;
         width: 100%;
         max-width: 100vw;
+        font-size: 20px;
     }
 
     h1 {
@@ -390,14 +392,12 @@ section.contact a:hover {
         border-radius: 40px;
     }
 
-
-
     section.service article {
         flex-direction: column;
     }
 
     section.service figure {
-        flex-basis: 25vh;
+        flex-basis: 33vh;
         max-width: 100%;
         min-width: 0%;
         width: 100%;
@@ -413,8 +413,22 @@ section.contact a:hover {
         width: 100%;
     }
 
-    section.contact a {
-        font-size: 64px;
+    section.contact h1 {
+        text-align: center;
     }
+
+    section.contact a {
+        font-size: 32px;
+    }
+
+    section.about article,
+    section.about article .title,
+    section.about article .description,
+    section.service .text,
+    section.contact a {
+    min-width: 0;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
 
 }

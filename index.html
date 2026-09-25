@@ -81,7 +81,8 @@
 
         <section id="contact" class="contact full-screen">
 
-            <a href="https://www.linkedin.com/in/edgar-aguirre-luarca/">THANK YOU! <br> View my LinkedIn profile here.</a>
+            <h1>THANK YOU!</h1>
+            <a href="https://www.linkedin.com/in/edgar-aguirre-luarca/">View my LinkedIn profile here.</a>
 
         </section>
         
@@ -119,6 +120,10 @@
              navLinks.classList.remove('is-active');
            });
             });
+
+            if (window.matchMedia('(pointer: fine)').matches) {
+             window.addEventListener('mousemove', handleMouseMove);
+            }
 
         </script>
 
