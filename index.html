@@ -48,7 +48,7 @@
                 <div class="text">
                     <h2>HTML</h2>
                     <p>I've been comfortable with HTML since high school. It’s always been natural for me to use it to structure and organize web content cleanly.</p>
-                    <a href="https://wikipedia.org">More about HTML</a>
+                    <a href="#" class="code-preview-trigger" data-code="img/html-screenshot.png" data-alt="Código HTML en VS Code">More about HTML</a>
                 </div>
             </article>
         </section>
@@ -61,7 +61,7 @@
                 <div class="text">
                     <h2>CSS</h2>
                     <p>Over the last three years, working with WordPress pushed me to learn custom styling to bypass template limits, match brand aesthetics, and build custom pages.</p>
-                    <a href="https://wikipedia.org">More about CSS</a>
+                    <a href="#" class="code-preview-trigger" data-code="img/css-screenshot.png" data-alt="Código CSS en VS Code">More about CSS</a>
                 </div>
             </article>
         </section>
@@ -74,7 +74,7 @@
                 <div class="text">
                     <h2>JavaScript</h2>
                     <p>My JS experience is basic, but I'm excited to keep learning—especially to explore interaction design and micro-animations that bring digital products to life.</p>
-                    <a href="https://wikipedia.org">More about JavaScript</a>
+                    <a href="#" class="code-preview-trigger" data-code="img/js-screenshot.png" data-alt="Código JS en VS Code">More about JavaScript</a>
                 </div>
             </article>
         </section>
@@ -86,14 +86,19 @@
 
         </section>
         
+        <div class="code-modal" id="codeModal">
+            <div class="code-modal-content">
+                <button class="code-modal-close" aria-label="Cerrar">&times;</button>
+                 <img src="" alt="" id="codeModalImage">
+           </div>
+        </div>
+        
         <script>
 
             let emptyElement = document.querySelector('.about .empty');
             let titleElement = document.querySelector('.about .title');
 
             let figureElements = document.querySelectorAll('.service figure');
-
-            window.addEventListener( 'mousemove', handleMouseMove );
 
             function handleMouseMove( event ) {
 
@@ -109,21 +114,49 @@
             const navLinks = document.querySelector('.nav-links');
             const allLinks = document.querySelectorAll('.nav-links a');
 
-            // 1. Abre o cierra el menú al hacer clic en el botón de hamburguesa
             menuToggle.addEventListener('click', () => {
             navLinks.classList.toggle('is-active');
             });
 
-            // 2. Cierra el menú automáticamente cuando el usuario hace clic en cualquier enlace
             allLinks.forEach(link => {
              link.addEventListener('click', () => {
-             navLinks.classList.remove('is-active');
-           });
+            navLinks.classList.remove('is-active');
+            });
             });
 
             if (window.matchMedia('(pointer: fine)').matches) {
              window.addEventListener('mousemove', handleMouseMove);
             }
+
+            const codeModal = document.getElementById('codeModal');
+            const codeModalImage = document.getElementById('codeModalImage');
+            const codeModalClose = document.querySelector('.code-modal-close');
+            const codeTriggers = document.querySelectorAll('.code-preview-trigger');
+
+            codeTriggers.forEach(trigger => {
+                trigger.addEventListener('click', (event) => {
+                event.preventDefault();
+                    codeModalImage.src = trigger.dataset.code;
+                    codeModalImage.alt = trigger.dataset.alt;
+                    codeModal.classList.add('is-active');
+                });
+            });
+
+            function closeCodeModal() {
+                codeModal.classList.remove('is-active');
+                codeModalImage.src = '';
+            }
+
+            codeModalClose.addEventListener('click', closeCodeModal);
+            codeModal.addEventListener('click', (event) => {
+                if (event.target === codeModal) closeCodeModal();
+            });
+
+            document.addEventListener('keydown', (event) => {
+                if (event.key === 'Escape' && codeModal.classList.  contains('is-active')) {
+                closeCodeModal();
+                }
+            });
 
         </script>
 

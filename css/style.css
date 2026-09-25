@@ -11,7 +11,7 @@ html, body {
     --color-primary: #1c47ff;
     --color-secondary: #d6a3fb;
     --color-tertiary: #d0ff94;
-    --gutter: 80px 64px;
+    --gutter: 64px 64px;
     margin: 0;
     padding: 0;
     background-color: var(--color-neutral-0);
@@ -110,10 +110,9 @@ section.about .empty {
     border-radius: var(--border-radius);
     transition: flex-basis 1s cubic-bezier(0,.22,.15,.99);
     min-width: 400px;
-    max-width: 960px;
+    max-width: 800px;
     display: flex;
     padding: 64px;
-    box-sizing: border-box;
     justify-content: center;
     align-items: center;
 }
@@ -131,7 +130,9 @@ section.about article {
     display: flex;
     flex-direction: column;
     transition: flex-basis 1s cubic-bezier(0,.22,.15,.99);
-
+    min-width: 0;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
 }
 
 section.about article .title {
@@ -144,6 +145,9 @@ section.about article .title {
     border-radius: var(--border-radius);
     padding: var(--gutter);
     gap: 24px;
+    min-width: 0;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
 }
 
 section.about article .description {
@@ -153,6 +157,9 @@ section.about article .description {
     background-color: var(--color-secondary);
     border-radius: var(--border-radius);
     padding: var(--gutter);
+    min-width: 0;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
 }
 
 /* Services Section */
@@ -188,6 +195,9 @@ section.service .text {
     padding: var(--gutter);
     border-radius: var(--border-radius);
     max-width: 64%;
+    min-width: 0;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
 }
 
 /* Service Section Animations */
@@ -279,12 +289,66 @@ section.contact a {
     display: inline-block;
     text-align: center;
     padding: 12px 64px;
+    min-width: 0;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
 }
 
 section.contact a:hover {
     filter: blur(2px);
     color: var(--color-neutral-100);
     text-decoration: underline;
+}
+
+/* Code Preview Modal */
+
+.code-modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.85);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 2000;
+    padding: 24px;
+    box-sizing: border-box;
+}
+
+.code-modal.is-active {
+    display: flex;
+}
+
+.code-modal-content {
+    position: relative;
+    max-width: 900px;
+    width: fit-content;
+    max-height: calc(100vh - 48px);
+    overflow-y: auto;
+}
+
+.code-modal-content img {
+    max-width: 100%;
+    max-height: calc(100vh - 48px);
+    width: auto;
+    height: auto;
+    display: block;
+    border-radius: 24px;
+    object-fit: contain;
+}
+
+.code-modal-close {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    border: none;
+    background: var(--color-neutral-0);
+    color: var(--color-neutral-100);
+    font-size: 28px;
+    line-height: 1;
+    cursor: pointer;
 }
 
 /* Media Queries */
@@ -317,10 +381,6 @@ section.contact a:hover {
     nav {
         z-index: 1000;
         height: 60px;
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
     }
 
     nav.navbar {
@@ -397,7 +457,7 @@ section.contact a:hover {
     }
 
     section.service figure {
-        flex-basis: 33vh;
+        flex-basis: 25vh;
         max-width: 100%;
         min-width: 0%;
         width: 100%;
@@ -418,17 +478,7 @@ section.contact a:hover {
     }
 
     section.contact a {
-        font-size: 32px;
+        font-size: 24px;
     }
-
-    section.about article,
-    section.about article .title,
-    section.about article .description,
-    section.service .text,
-    section.contact a {
-    min-width: 0;
-    word-wrap: break-word;
-    overflow-wrap: break-word;
-}
 
 }
