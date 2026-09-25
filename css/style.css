@@ -2,6 +2,8 @@
     box-sizing: border-box;
 }
 
+/* Styled by hand — Edgar Aguirre, UX/UI Designer learning to code (2026) */
+
 html, body {
     --border-radius: 100px;
     --color-neutral-0: #000000;
@@ -109,8 +111,8 @@ section.about .empty {
     background-color: var(--color-neutral-90);
     border-radius: var(--border-radius);
     transition: flex-basis 1s cubic-bezier(0,.22,.15,.99);
-    min-width: 400px;
-    max-width: 800px;
+    min-width: 30%;
+    max-width: 65%;
     display: flex;
     padding: 64px;
     justify-content: center;
@@ -471,6 +473,7 @@ section.contact a:hover {
         max-width: 100%;
         min-width: 0%;
         width: 100%;
+        justify-content: flex-start;
     }
 
     section.contact h1 {
