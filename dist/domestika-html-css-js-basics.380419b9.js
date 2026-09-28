@@ -207,15 +207,15 @@
       });
     }
   }
-})({"9JJ5D":[function(require,module,exports,__globalThis) {
+})({"3OHon":[function(require,module,exports,__globalThis) {
 var global = arguments[3];
 var HMR_HOST = null;
 var HMR_PORT = null;
 var HMR_SERVER_PORT = 1234;
 var HMR_SECURE = false;
-var HMR_ENV_HASH = "d6ea1d42532a7575";
+var HMR_ENV_HASH = "439701173a9199ea";
 var HMR_USE_SSE = false;
-module.bundle.HMR_BUNDLE_ID = "7055c94b59712999";
+module.bundle.HMR_BUNDLE_ID = "c1706a4c380419b9";
 "use strict";
 /* global HMR_HOST, HMR_PORT, HMR_SERVER_PORT, HMR_ENV_HASH, HMR_SECURE, HMR_USE_SSE, chrome, browser, __parcel__import__, __parcel__importScripts__, ServiceWorkerGlobalScope */ /*::
 import type {
@@ -713,8 +713,95 @@ function hmrAccept(bundle /*: ParcelRequire */ , id /*: string */ ) {
     }
 }
 
-},{}],"4M6V8":[function(require,module,exports,__globalThis) {
+},{}],"2xGku":[function(require,module,exports,__globalThis) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+var _htmlScreenshotPng = require("../img/html-screenshot.png");
+var _htmlScreenshotPngDefault = parcelHelpers.interopDefault(_htmlScreenshotPng);
+var _cssScreenshotPng = require("../img/css-screenshot.png");
+var _cssScreenshotPngDefault = parcelHelpers.interopDefault(_cssScreenshotPng);
+var _jsScreenshotPng = require("../img/js-screenshot.png");
+var _jsScreenshotPngDefault = parcelHelpers.interopDefault(_jsScreenshotPng);
+const codeImages = {
+    html: (0, _htmlScreenshotPngDefault.default),
+    css: (0, _cssScreenshotPngDefault.default),
+    js: (0, _jsScreenshotPngDefault.default)
+};
+let emptyElement = document.querySelector('.about .empty');
+let titleElement = document.querySelector('.about .title');
+let figureElements = document.querySelectorAll('.service figure');
+function handleMouseMove(event) {
+    emptyElement.style.flexBasis = event.clientX + 'px';
+    titleElement.style.flexBasis = event.clientY / 2 + 'px';
+    figureElements.forEach(function(element) {
+        element.style.flexBasis = window.innerWidth - event.clientX + 'px';
+    });
+}
+const menuToggle = document.querySelector('.menu-toggle');
+const navLinks = document.querySelector('.nav-links');
+const allLinks = document.querySelectorAll('.nav-links a');
+menuToggle.addEventListener('click', ()=>{
+    navLinks.classList.toggle('is-active');
+});
+allLinks.forEach((link)=>{
+    link.addEventListener('click', ()=>{
+        navLinks.classList.remove('is-active');
+    });
+});
+if (window.matchMedia('(pointer: fine)').matches) window.addEventListener('mousemove', handleMouseMove);
+const codeModal = document.getElementById('codeModal');
+const codeModalImage = document.getElementById('codeModalImage');
+const codeModalClose = document.querySelector('.code-modal-close');
+const codeTriggers = document.querySelectorAll('.code-preview-trigger');
+codeTriggers.forEach((trigger)=>{
+    trigger.addEventListener('click', (event)=>{
+        event.preventDefault();
+        codeModalImage.src = codeImages[trigger.dataset.code];
+        codeModalImage.alt = trigger.dataset.alt;
+        codeModal.classList.add('is-active');
+    });
+});
+function closeCodeModal() {
+    codeModal.classList.remove('is-active');
+    codeModalImage.src = '';
+}
+codeModalClose.addEventListener('click', closeCodeModal);
+codeModal.addEventListener('click', (event)=>{
+    if (event.target === codeModal) closeCodeModal();
+});
+document.addEventListener('keydown', (event)=>{
+    if (event.key === 'Escape' && codeModal.classList.contains('is-active')) closeCodeModal();
+});
 
-},{}]},["9JJ5D","4M6V8"], "4M6V8", "parcelRequire9d71", {})
+},{"../img/html-screenshot.png":"5R2it","../img/css-screenshot.png":"cvemG","../img/js-screenshot.png":"kcMV2","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"5R2it":[function() {},{}],"cvemG":[function() {},{}],"kcMV2":[function() {},{}],"jnFvT":[function(require,module,exports,__globalThis) {
+exports.interopDefault = function(a) {
+    return a && a.__esModule ? a : {
+        default: a
+    };
+};
+exports.defineInteropFlag = function(a) {
+    Object.defineProperty(a, '__esModule', {
+        value: true
+    });
+};
+exports.exportAll = function(source, dest) {
+    Object.keys(source).forEach(function(key) {
+        if (key === 'default' || key === '__esModule' || Object.prototype.hasOwnProperty.call(dest, key)) return;
+        Object.defineProperty(dest, key, {
+            enumerable: true,
+            get: function() {
+                return source[key];
+            }
+        });
+    });
+    return dest;
+};
+exports.export = function(dest, destName, get) {
+    Object.defineProperty(dest, destName, {
+        enumerable: true,
+        get: get
+    });
+};
 
-//# sourceMappingURL=domestika-html-css-js-basics.59712999.js.map
+},{}]},["3OHon","2xGku"], "2xGku", "parcelRequire9d71", {})
+
+//# sourceMappingURL=domestika-html-css-js-basics.380419b9.js.map
