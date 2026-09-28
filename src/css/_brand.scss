@@ -1,0 +1,21 @@
+.brand {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    min-width: 0;
+}
+
+.brand-logo {
+    display: block;
+    height: auto;
+    filter: drop-shadow(0 8px 20px rgba(28, 71, 255, 0.25));
+}
+
+.desktop-logo {
+    width: clamp(320px, 22vw, 400px);
+}
+
+.mobile-logo {
+    display: none;
+}

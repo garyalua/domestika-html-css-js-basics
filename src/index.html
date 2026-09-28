@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+    
+<!--
+  Hand-coded by Edgar Aguirre — UX/UI & Branding Designer (2026)
+  Built as part of a hands-on course to strengthen my understanding
+  of front-end languages (HTML, CSS & JS), aiming to close the gap
+  between design and development and communicate more effectively
+  with dev teams.
+-->
+
+    <head>
+        <title>Learning HTML, CSS & JS - Edgar Aguirre</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syne:wght@400..800&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="css/style.scss"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    </head>
+
+    <body>
+
+        <nav class="navbar" aria-label="Navegación principal">
+            <div class="brand" aria-label="Edgar Aguirre">
+                <img class="brand-logo desktop-logo" src="img/logo-horizontal.svg" alt="Logo Edgar Aguirre" />
+                <img class="brand-logo mobile-logo" src="img/logo-square.svg" alt="Icono Edgar Aguirre" />
+            </div>
+            <button class="menu-toggle" aria-label="Abrir menú">
+                ☰
+            </button>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#html">HTML</a></li>
+                <li><a href="#css">CSS</a></li>
+                <li><a href="#javascript">JavaScript</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+
+        <section id="about" class="about">
+            <div class="empty">
+                <img src="img/profile.jpg" alt="foto-perfil">
+            </div>
+            <article>
+                <div class="title">
+                    <h1>Edgar Aguirre</h1>
+                    <h3>UX/UI Designer <br> Learning How To Code</h3>
+                </div>
+                <div class="description">
+                    <p>Welcome to my practice playground. I built this page while taking a hands-on HTML, CSS, and JavaScript course, aiming to sharpen my communication with dev teams and broaden my web design skills.</p>
+                </div>
+            </article>
+        </section>
+
+        <section id="html" class="service service-html sticky">
+            <article>
+                <figure>
+                    <img src="img/rectangle_a-01.svg" alt="Rectangle A" width="200" />
+                </figure>
+                <div class="text">
+                    <h2>HTML</h2>
+                    <p>I've been comfortable with HTML since high school. It’s always been natural for me to use it to structure and organize web content cleanly.</p>
+                    <a href="#" class="code-preview-trigger" data-code="html" data-alt="Código HTML en VS Code">View HTML code</a>
+                </div>
+            </article>
+        </section>
+
+        <section id="css" class="service service-css sticky">
+            <article>
+                <figure>
+                    <img src="img/polygon_a-01.svg" alt="Polygon A" width="200" />
+                </figure>
+                <div class="text">
+                    <h2>CSS</h2>
+                    <p>Over the last three years, working with WordPress pushed me to learn custom styling to bypass template limits, match brand aesthetics, and build custom pages.</p>
+                    <a href="#" class="code-preview-trigger" data-code="css" data-alt="Código CSS en VS Code">View CSS code</a>
+                </div>
+            </article>
+        </section>
+
+        <section id="javascript" class="service service-javascript sticky">
+            <article>
+                <figure>
+                    <img src="img/polygon_b-01.svg" alt="Polygon B" width="200" />
+                </figure>
+                <div class="text">
+                    <h2>JavaScript</h2>
+                    <p>My JS experience is basic, but I'm excited to keep learning—especially to explore interaction design and micro-animations that bring digital products to life.</p>
+                    <a href="#" class="code-preview-trigger" data-code="js" data-alt="Código JS en VS Code">View JavaScript code</a>
+                </div>
+            </article>
+        </section>
+
+        <section id="contact" class="contact full-screen">
+
+            <h1>THANK YOU!</h1>
+            <a href="https://www.linkedin.com/in/edgar-aguirre-luarca/">View my LinkedIn profile here.</a>
+
+        </section>
+        
+        <div class="code-modal" id="codeModal">
+            <div class="code-modal-content">
+                <button class="code-modal-close" aria-label="Cerrar">&times;</button>
+                <img src="#" alt="" id="codeModalImage">
+            </div>
+        </div>
+        
+        <script type="module">
+
+            let emptyElement = document.querySelector('.about .empty');
+            let titleElement = document.querySelector('.about .title');
+
+            let figureElements = document.querySelectorAll('.service figure');
+
+            function handleMouseMove( event ) {
+
+                emptyElement.style.flexBasis = event.clientX + 'px';
+                titleElement.style.flexBasis = event.clientY / 2 + 'px';
+
+                figureElements.forEach( function( element ) {
+                    element.style.flexBasis = window.innerWidth - event.clientX + 'px';
+                } );
+            }
+
+            const menuToggle = document.querySelector('.menu-toggle');
+            const navLinks = document.querySelector('.nav-links');
+            const allLinks = document.querySelectorAll('.nav-links a');
+
+            menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('is-active');
+            });
+
+            allLinks.forEach(link => {
+             link.addEventListener('click', () => {
+            navLinks.classList.remove('is-active');
+            });
+            });
+
+            if (window.matchMedia('(pointer: fine)').matches) {
+             window.addEventListener('mousemove', handleMouseMove);
+            }
+
+            const codeModal = document.getElementById('codeModal');
+            const codeModalImage = document.getElementById('codeModalImage');
+            const codeModalClose = document.querySelector('.code-modal-close');
+            const codeTriggers = document.querySelectorAll('.code-preview-trigger');
+
+            codeTriggers.forEach(trigger => {
+                trigger.addEventListener('click', (event) => {
+                event.preventDefault();
+                    codeModalImage.src = codeImages[trigger.dataset.code];
+                    codeModalImage.alt = trigger.dataset.alt;
+                    codeModal.classList.add('is-active');
+                });
+            });
+
+            function closeCodeModal() {
+                codeModal.classList.remove('is-active');
+                codeModalImage.src = '';
+            }
+
+            codeModalClose.addEventListener('click', closeCodeModal);
+            codeModal.addEventListener('click', (event) => {
+                if (event.target === codeModal) closeCodeModal();
+            });
+
+            document.addEventListener('keydown', (event) => {
+                if (event.key === 'Escape' && codeModal.classList.  contains('is-active')) {
+                closeCodeModal();
+                }
+            });
+
+            import htmlScreenshot from './img/html-screenshot.png';
+            import cssScreenshot from './img/css-screenshot.png';
+            import jsScreenshot from './img/js-screenshot.png';
+
+            const codeImages = {
+            html: htmlScreenshot,
+            css: cssScreenshot,
+            js: jsScreenshot,
+            };
+
+        </script>
+
+    </body>
+
+</html>
