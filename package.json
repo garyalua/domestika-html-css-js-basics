@@ -10,6 +10,7 @@
     "type": "git",
     "url": "git+https://github.com/garyalua/domestika-html-css-js-basics.git"
   },
+  "browserlist": "> 0.5%, last 2 versions, not dead",
   "license": "ISC",
   "author": "",
   "type": "commonjs",
