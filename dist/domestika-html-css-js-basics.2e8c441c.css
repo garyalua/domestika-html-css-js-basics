@@ -2,7 +2,7 @@
   box-sizing: border-box;
 }
 
-html, body {
+:root {
   --border-radius: 100px;
   --color-neutral-0: #000;
   --color-neutral-10: #1f1a1c;
@@ -12,12 +12,30 @@ html, body {
   --color-secondary: #d6a3fb;
   --color-tertiary: #d0ff94;
   --gutter: 32px 64px;
+}
+
+@media only screen and (width <= 768px) {
+  :root {
+    --border-radius: 50px;
+    --gutter: 32px;
+  }
+}
+
+body {
   background-color: var(--color-neutral-0);
   color: var(--color-neutral-90);
+  width: 100%;
   margin: 0;
   padding: 0;
   font-family: Syne, sans-serif;
   font-size: 32px;
+}
+
+@media only screen and (width <= 768px) {
+  body {
+    max-width: 100vw;
+    font-size: 20px;
+  }
 }
 
 h1 {
@@ -26,14 +44,32 @@ h1 {
   line-height: 1em;
 }
 
+@media only screen and (width <= 768px) {
+  h1 {
+    font-size: 60px;
+  }
+}
+
 h2 {
   margin: 0;
   font-size: 60px;
 }
 
+@media only screen and (width <= 768px) {
+  h2 {
+    font-size: 40px;
+  }
+}
+
 h3 {
   margin: 0;
   font-size: 40px;
+}
+
+@media only screen and (width <= 768px) {
+  h3 {
+    font-size: 32px;
+  }
 }
 
 a {
@@ -42,12 +78,26 @@ a {
   text-decoration: none;
 }
 
+@media only screen and (width <= 768px) {
+  a {
+    font-size: 20px;
+  }
+}
+
 .brand {
   flex-shrink: 0;
   justify-content: center;
   align-items: center;
   min-width: 0;
   display: flex;
+}
+
+@media only screen and (width <= 768px) {
+  .brand {
+    width: 96px;
+    height: 64px;
+    overflow: hidden;
+  }
 }
 
 .brand-logo {
@@ -60,8 +110,23 @@ a {
   width: clamp(320px, 22vw, 400px);
 }
 
+@media only screen and (width <= 768px) {
+  .desktop-logo {
+    display: none;
+  }
+}
+
 .mobile-logo {
   display: none;
+}
+
+@media only screen and (width <= 768px) {
+  .mobile-logo {
+    border-radius: 16px;
+    width: 96px;
+    height: 64px;
+    display: block;
+  }
 }
 
 nav {
@@ -74,6 +139,13 @@ nav {
   left: 0;
 }
 
+@media only screen and (width <= 768px) {
+  nav {
+    z-index: 1000;
+    height: 60px;
+  }
+}
+
 nav.navbar {
   justify-content: space-between;
   align-items: center;
@@ -81,6 +153,16 @@ nav.navbar {
   width: 100%;
   padding: 0 32px 0 24px;
   display: flex;
+}
+
+@media only screen and (width <= 768px) {
+  nav.navbar {
+    box-sizing: border-box;
+    gap: 12px;
+    width: 100%;
+    max-width: 100vw;
+    padding: 0 16px 0 12px;
+  }
 }
 
 nav ul {
@@ -106,6 +188,48 @@ nav ul li a {
   display: none;
 }
 
+@media only screen and (width <= 768px) {
+  .menu-toggle {
+    color: #fff;
+    cursor: pointer;
+    background: none;
+    border: none;
+    margin-left: auto;
+    padding: 8px 0;
+    font-size: 40px;
+    display: block;
+  }
+
+  .nav-links {
+    box-sizing: border-box;
+    z-index: 1001;
+    background-color: #1f1a1cf5;
+    border: 1px solid #ffffff1f;
+    border-radius: 20px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 18px;
+    width: min(280px, 100vw - 24px);
+    height: auto;
+    margin: 0;
+    padding: 20px 18px;
+    display: none;
+    position: fixed;
+    top: 72px;
+    left: auto;
+    right: 12px;
+    box-shadow: 0 24px 40px #00000047;
+  }
+
+  .nav-links.is-active {
+    display: flex;
+  }
+
+  .nav-links li {
+    margin-left: 0;
+  }
+}
+
 section {
   z-index: 2;
   width: 100%;
@@ -115,10 +239,24 @@ section {
   top: 100px;
 }
 
+@media only screen and (width <= 768px) {
+  section {
+    height: calc(100vh - 80px);
+    top: 80px;
+  }
+}
+
 section.sticky {
   margin-top: 100px;
   position: sticky;
   top: 100px;
+}
+
+@media only screen and (width <= 768px) {
+  section.sticky {
+    margin-top: 80px;
+    top: 80px;
+  }
 }
 
 section.full-screen {
@@ -126,6 +264,14 @@ section.full-screen {
   height: 100vh;
   margin-top: 0;
   top: 0;
+}
+
+@media only screen and (width <= 768px) {
+  section.about {
+    flex-direction: column;
+    height: auto;
+    min-height: auto;
+  }
 }
 
 section.about article {
@@ -178,6 +324,15 @@ section.about .empty {
   display: flex;
 }
 
+@media only screen and (width <= 768px) {
+  section.about .empty {
+    width: 100%;
+    min-width: 0%;
+    max-width: 100%;
+    padding: 12px;
+  }
+}
+
 section.about .empty img {
   object-fit: cover;
   object-position: center bottom;
@@ -186,9 +341,21 @@ section.about .empty img {
   height: 100%;
 }
 
+@media only screen and (width <= 768px) {
+  section.about .empty img {
+    border-radius: 40px;
+  }
+}
+
 section.service article {
   width: 100%;
   display: flex;
+}
+
+@media only screen and (width <= 768px) {
+  section.service article {
+    flex-direction: column;
+  }
 }
 
 section.service figure {
@@ -204,6 +371,15 @@ section.service figure {
   display: flex;
 }
 
+@media screen and (width <= 768px) {
+  section.service figure {
+    flex-basis: 25vh;
+    width: 100%;
+    min-width: 0%;
+    max-width: 100%;
+  }
+}
+
 section.service figure img {
   width: 33%;
   transition: transform 1s linear;
@@ -215,7 +391,32 @@ section.service figure img {
   transform: rotate(0);
 }
 
+@media only screen and (width <= 768px) {
+  section.service figure img {
+    width: 25%;
+  }
+}
+
 section.service figure img:hover {
+  animation-name: rotate;
+  animation-duration: 8s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: normal;
+}
+
+section.service img {
+  width: 33%;
+  transition: transform 1s linear;
+  animation-name: float;
+  animation-duration: 1s;
+  animation-timing-function: cubic-bezier(.45, .05, .39, .93);
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  transform: rotate(0);
+}
+
+section.service img:hover {
   animation-name: rotate;
   animation-duration: 8s;
   animation-timing-function: linear;
@@ -235,6 +436,15 @@ section.service .text {
   min-width: 0;
   max-width: 100%;
   display: flex;
+}
+
+@media screen and (width <= 768px) {
+  section.service .text {
+    justify-content: flex-start;
+    width: 100%;
+    min-width: 0%;
+    max-width: 100%;
+  }
 }
 
 section.service.service-html figure {
@@ -273,6 +483,12 @@ section.contact {
   display: flex;
 }
 
+@media only screen and (width <= 768px) {
+  section.contact h1 {
+    text-align: center;
+  }
+}
+
 section.contact a {
   will-change: filter;
   text-align: center;
@@ -284,6 +500,12 @@ section.contact a {
   font-weight: bold;
   transition: filter 1s cubic-bezier(.45, .05, .39, .93);
   display: inline-block;
+}
+
+@media only screen and (width <= 768px) {
+  section.contact a {
+    font-size: 24px;
+  }
 }
 
 section.contact a:hover {
@@ -359,159 +581,5 @@ section.contact a:hover {
   position: absolute;
   top: 12px;
   right: 12px;
-}
-
-@media only screen and (width <= 768px) {
-  html, body {
-    --border-radius: 50px;
-    --gutter: 32px;
-    width: 100%;
-    max-width: 100vw;
-    font-size: 20px;
-  }
-
-  h1 {
-    font-size: 60px;
-  }
-
-  h2 {
-    font-size: 40px;
-  }
-
-  h3 {
-    font-size: 32px;
-  }
-
-  a {
-    font-size: 20px;
-  }
-
-  nav {
-    z-index: 1000;
-    height: 60px;
-  }
-
-  nav.navbar {
-    box-sizing: border-box;
-    gap: 12px;
-    width: 100%;
-    max-width: 100vw;
-    padding: 0 16px 0 12px;
-  }
-
-  .brand {
-    width: 96px;
-    height: 64px;
-    overflow: hidden;
-  }
-
-  .desktop-logo {
-    display: none;
-  }
-
-  .mobile-logo {
-    border-radius: 16px;
-    width: 96px;
-    height: 64px;
-    display: block;
-  }
-
-  .menu-toggle {
-    color: #fff;
-    cursor: pointer;
-    background: none;
-    border: none;
-    margin-left: auto;
-    padding: 8px 0;
-    font-size: 40px;
-    display: block;
-  }
-
-  .nav-links {
-    box-sizing: border-box;
-    z-index: 1001;
-    background-color: #1f1a1cf5;
-    border: 1px solid #ffffff1f;
-    border-radius: 20px;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 18px;
-    width: min(280px, 100vw - 24px);
-    height: auto;
-    margin: 0;
-    padding: 20px 18px;
-    display: none;
-    position: fixed;
-    top: 72px;
-    left: auto;
-    right: 12px;
-    box-shadow: 0 24px 40px #00000047;
-  }
-
-  .nav-links.is-active {
-    display: flex;
-  }
-
-  .nav-links li {
-    margin-left: 0;
-  }
-
-  section {
-    height: calc(100vh - 80px);
-    top: 80px;
-  }
-
-  section.sticky {
-    margin-top: 80px;
-    position: sticky;
-    top: 80px;
-  }
-
-  section.about {
-    flex-direction: column;
-    height: auto;
-    min-height: auto;
-  }
-
-  section.about .empty {
-    width: 100%;
-    min-width: 0%;
-    max-width: 100%;
-    padding: 12px;
-  }
-
-  section.about .empty img {
-    border-radius: 40px;
-  }
-
-  section.service article {
-    flex-direction: column;
-  }
-
-  section.service figure {
-    flex-basis: 25vh;
-    width: 100%;
-    min-width: 0%;
-    max-width: 100%;
-  }
-
-  section.service figure img {
-    width: 25%;
-  }
-
-  section.service .text {
-    justify-content: flex-start;
-    width: 100%;
-    min-width: 0%;
-    max-width: 100%;
-  }
-
-  section.contact h1 {
-    text-align: center;
-  }
-
-  section.contact a {
-    font-size: 24px;
-  }
 }
 /*# sourceMappingURL=domestika-html-css-js-basics.2e8c441c.css.map */

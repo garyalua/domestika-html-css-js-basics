@@ -1,11 +1,7 @@
-import htmlScreenshot from '../img/html-screenshot.png';
-import cssScreenshot from '../img/css-screenshot.png';
-import jsScreenshot from '../img/js-screenshot.png';
-
 const codeImages = {
-    html: htmlScreenshot,
-    css: cssScreenshot,
-    js: jsScreenshot,
+    html: new URL('../img/html-screenshot.png', import.meta.url).href,
+    css: new URL('../img/css-screenshot.png', import.meta.url).href,
+    js: new URL('../img/js-screenshot.png', import.meta.url).href,
 };
 
 let emptyElement = document.querySelector('.about .empty');

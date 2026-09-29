@@ -177,7 +177,7 @@
 
   // Only insert newRequire.load when it is actually used.
   // The code in this file is linted against ES5, so dynamic import is not allowed.
-  // INSERT_LOAD_HERE
+  function $parcel$resolve(url) {  url = importMap[url] || url;  return import.meta.resolve(distDir + url);}newRequire.resolve = $parcel$resolve;
 
   Object.defineProperty(newRequire, 'root', {
     get: function () {
@@ -714,17 +714,10 @@ function hmrAccept(bundle /*: ParcelRequire */ , id /*: string */ ) {
 }
 
 },{}],"2xGku":[function(require,module,exports,__globalThis) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-var _htmlScreenshotPng = require("../img/html-screenshot.png");
-var _htmlScreenshotPngDefault = parcelHelpers.interopDefault(_htmlScreenshotPng);
-var _cssScreenshotPng = require("../img/css-screenshot.png");
-var _cssScreenshotPngDefault = parcelHelpers.interopDefault(_cssScreenshotPng);
-var _jsScreenshotPng = require("../img/js-screenshot.png");
-var _jsScreenshotPngDefault = parcelHelpers.interopDefault(_jsScreenshotPng);
 const codeImages = {
-    html: (0, _htmlScreenshotPngDefault.default),
-    css: (0, _cssScreenshotPngDefault.default),
-    js: (0, _jsScreenshotPngDefault.default)
+    html: new URL(require("7879bc2ee5c7e89a")).href,
+    css: new URL(require("dd89b15afa0f12e5")).href,
+    js: new URL(require("65a7e409742d8b93")).href
 };
 let emptyElement = document.querySelector('.about .empty');
 let titleElement = document.querySelector('.about .title');
@@ -772,36 +765,15 @@ document.addEventListener('keydown', (event)=>{
     if (event.key === 'Escape' && codeModal.classList.contains('is-active')) closeCodeModal();
 });
 
-},{"../img/html-screenshot.png":"5R2it","../img/css-screenshot.png":"cvemG","../img/js-screenshot.png":"kcMV2","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"5R2it":[function() {},{}],"cvemG":[function() {},{}],"kcMV2":[function() {},{}],"jnFvT":[function(require,module,exports,__globalThis) {
-exports.interopDefault = function(a) {
-    return a && a.__esModule ? a : {
-        default: a
-    };
-};
-exports.defineInteropFlag = function(a) {
-    Object.defineProperty(a, '__esModule', {
-        value: true
-    });
-};
-exports.exportAll = function(source, dest) {
-    Object.keys(source).forEach(function(key) {
-        if (key === 'default' || key === '__esModule' || Object.prototype.hasOwnProperty.call(dest, key)) return;
-        Object.defineProperty(dest, key, {
-            enumerable: true,
-            get: function() {
-                return source[key];
-            }
-        });
-    });
-    return dest;
-};
-exports.export = function(dest, destName, get) {
-    Object.defineProperty(dest, destName, {
-        enumerable: true,
-        get: get
-    });
-};
+},{"7879bc2ee5c7e89a":"ejdqo","dd89b15afa0f12e5":"1GEiC","65a7e409742d8b93":"iOz6T"}],"ejdqo":[function(require,module,exports,__globalThis) {
+module.exports = module.bundle.resolve("html-screenshot.b803831f.png") + "?" + Date.now();
 
-},{}]},["3OHon","2xGku"], "2xGku", "parcelRequire9d71", {})
+},{}],"1GEiC":[function(require,module,exports,__globalThis) {
+module.exports = module.bundle.resolve("css-screenshot.3aa287c5.png") + "?" + Date.now();
+
+},{}],"iOz6T":[function(require,module,exports,__globalThis) {
+module.exports = module.bundle.resolve("js-screenshot.96f338ba.png") + "?" + Date.now();
+
+},{}]},["3OHon","2xGku"], "2xGku", "parcelRequire9d71", {}, "./", "/")
 
 //# sourceMappingURL=domestika-html-css-js-basics.380419b9.js.map

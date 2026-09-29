@@ -1,0 +1,17 @@
+:root {
+    --border-radius: 100px;
+    --color-neutral-0: #000000;
+    --color-neutral-10: #1f1a1c;
+    --color-neutral-90: #e5e5e5;
+    --color-neutral-100: #ffffff;
+    --color-primary: #1c47ff;
+    --color-secondary: #d6a3fb;
+    --color-tertiary: #d0ff94;
+    --gutter: 32px 64px;
+
+    @media only screen and (max-width: 768px) {
+        --border-radius: 50px;
+        --gutter: 32px;
+    }
+
+}
