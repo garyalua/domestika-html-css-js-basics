@@ -17,7 +17,7 @@
   "source": "src/index.html",
   "scripts": {
     "start": "npm run prebuild && parcel",
-    "build": "parcel build",
+    "build": "parcel build --public-url ./",
     "prebuild": "rm -rf dist"
   },
   "devDependencies": {
