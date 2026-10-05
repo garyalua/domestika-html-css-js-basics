@@ -20,4 +20,4 @@ npm run start
 
 ## Author
 
-Edgar Aguirre — [LinkedIn](tu-link) · [Portfolio](tu-link)
+Edgar Aguirre — [LinkedIn](https://www.linkedin.com/in/edgar-aguirre-luarca)
